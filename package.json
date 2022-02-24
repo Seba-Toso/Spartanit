@@ -35,7 +35,8 @@
     "cross-env": "7.0.3",
     "dotenv": "8.2.0",
     "express": "4.17.1",
-    "node-sass": "6.0"
+    "node-sass": "6.0",
+    "react-in-viewport": "^1.0.0-alpha.20"
   },
   "devDependencies": {
     "jest": "26.6.0",

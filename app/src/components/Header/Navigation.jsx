@@ -1,16 +1,24 @@
 import React from 'react'
+import Anchor from '../General/Anchor'
 
 const Navigation = () => {
+
+  const navigationTags = [
+    { name: 'Home', to: 'hero' },
+    { name: 'Nosotros', to: 'about' },
+    { name: 'Características', to: 'features' },
+    { name: 'Galería', to: 'gallery' },
+    { name: 'Contacto', to: 'contact' },
+  ]
+
   return (
-    <nav id="navbar" class="navbar">
+    <nav id="navbar" className="navbar">
       <ul>
-        <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-        <li><a class="nav-link scrollto" href="#about">Nosotros</a></li>
-        <li><a class="nav-link scrollto" href="#features">Características</a></li>
-        <li><a class="nav-link scrollto" href="#gallery">Galería</a></li>
-        <li><a class="nav-link scrollto" href="#contact">Contacto</a></li>
+        {
+          navigationTags.map(tag => <li key={tag.name}><Anchor text={tag.name} toLink={tag.to} /></li>)
+        }
       </ul>
-      <i class="bi bi-list mobile-nav-toggle"></i>
+      <i className="bi bi-list mobile-nav-toggle"></i>
     </nav>
   )
 }
