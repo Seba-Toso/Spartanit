@@ -1,0 +1,56 @@
+.about {
+  padding: 40px 0 0 0;
+  .icon-boxes {
+    h1 {
+      font-size: 46px;
+      font-weight: 500;
+      color: #010483;
+      margin-bottom: 15px;
+      text-align: right;
+    }
+  }
+  .icon-box {
+    margin-top: 40px;
+    .icon {
+      float: left;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 64px;
+      height: 64px;
+      border: 2px solid #004aad;
+      border-radius: 50px;
+      transition: 0.5s;
+      i {
+        color: #004aad;
+        font-size: 32px;
+      }
+    }
+    .title {
+      margin-left: 85px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      font-size: 26px;
+      color: #004aad;
+    }
+    .description {
+      margin-left: 85px;
+      line-height: 24px;
+      font-size: 18px;
+    }
+  }
+  .icon-box:hover {
+    .icon {
+      background: #004aad;
+      border-color: #004aad;
+      i {
+        color: #fff;
+      }
+    }
+  }
+  .video-box {
+    //background: url("../img/about.png") center center no-repeat;
+    background-size: contain;
+    min-height: 300px;
+  }
+}
