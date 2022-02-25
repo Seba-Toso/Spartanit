@@ -72,7 +72,7 @@ const Intro = () => {
         },
         "consent": true,
         "enable": true,
-        "frequency": 0.7,
+        "frequency": 0.8,
         "opacity": 0.9,
         "warp": true
       },
