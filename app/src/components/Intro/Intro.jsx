@@ -30,11 +30,12 @@ const Intro = () => {
     "interactivity": {
       "events": {
         "onClick": {
+          "enable": false,
           "mode": "repulse"
         },
         "onHover": {
           "enable": true,
-          "mode": "circle",
+          "mode": "bubble",
           "parallax": {
             "enable": true,
             "force": 10,
@@ -46,7 +47,7 @@ const Intro = () => {
         "bubble": {
           "distance": 250,
           "duration": 2,
-          "opacity": 0,
+          "opacity": 1,
           "size": 0
         },
         "grab": {
@@ -59,7 +60,7 @@ const Intro = () => {
     },
     "motion": {
       "reduce": {
-        "factor": 2
+        "factor": 1
       }
     },
     "particles": {
@@ -70,9 +71,9 @@ const Intro = () => {
         "color": {
           "value": "#1E2832"
         },
-        "consent": true,
+        "consent": false,
         "enable": true,
-        "frequency": 0.8,
+        "frequency": 0.9,
         "opacity": 0.9,
         "warp": true
       },
@@ -102,19 +103,19 @@ const Intro = () => {
         "density": {
           "enable": true
         },
-        "value": 160
+        "value": 200
       },
       "opacity": {
         "random": {
           "enable": true
         },
         "value": {
-          "min": 0,
-          "max": 1
+          "min": 0.5,
+          "max": 0.8
         },
         "animation": {
           "enable": true,
-          "speed": 0.8,
+          "speed": 0.2,
           "minimumValue": 0
         }
       },
@@ -124,10 +125,10 @@ const Intro = () => {
         },
         "value": {
           "min": 1,
-          "max": 3
+          "max": 5
         },
         "animation": {
-          "speed": 2,
+          "speed": 1,
           "minimumValue": 0.3
         }
       }

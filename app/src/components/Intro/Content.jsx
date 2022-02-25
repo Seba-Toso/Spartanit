@@ -6,7 +6,7 @@ const Content = ({ fontColor }) => {
   const color = fontColor === 'dark' ? 'rgb(0 74 173)' : 'rgb(200 200 200)'
 
   return (
-    <div className="container" style={{ color: color }}>
+    <div className="container py-5" style={{ color: color }}>
       <div className="row justify-content-between">
         <div className="col-lg-4 order-2 order-lg-1 hero-img" data-aos="zoom-out" data-aos-delay="300">
           {

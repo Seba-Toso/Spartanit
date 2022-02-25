@@ -24,7 +24,7 @@ const Header = () => {
 
   const headerStyle = {
     transition: '200ms all ease-in-out',
-    background: scrollPosition <= 250 ? 'transparent' : '#0205a1e8',
+    background: scrollPosition <= 150 ? 'transparent' : '#0205a1e8',
   }
 
   return (
