@@ -12,6 +12,10 @@ function App() {
       <div id='top' >
         <Intro />
         <MessageBlock h1='Frase Motivadora' h2='Siempre se puede estar más motivado' />
+        <MessageBlock h1='Frase Motivadora' h2='Siempre se puede estar más motivado' />
+        <MessageBlock h1='Frase Motivadora' h2='Siempre se puede estar más motivado' />
+        <MessageBlock h1='Frase Motivadora' h2='Siempre se puede estar más motivado' />
+
       </div>
     </div>
   );

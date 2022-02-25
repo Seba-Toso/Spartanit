@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import Navigation from './Navigation'
 import Logo from './Logo'
+
+
 import '../../styles/Header.scss'
 
 const Header = () => {
@@ -10,6 +12,7 @@ const Header = () => {
     const position = window.pageYOffset;
     setScrollPosition(position);
   };
+
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
