@@ -22,7 +22,7 @@ const Footer = () => {
               <p>Buenos Aires, Argentina</p>
             </div>
           </div>
-          <div className="social-icons row justify-content-center text-center w-50 px-5 m-auto">
+          <div className="social-icons row justify-content-center text-center w-50 px-5 pt-1 pb-3 m-auto">
             <div className='social-icon col-sm-3'><i className="bi bi-youtube"></i></div>
             <div className='social-icon col-sm-3'><i className="bi bi-linkedin"></i></div>
             <div className='social-icon col-sm-3'><i className="bi bi-facebook"></i></div>
