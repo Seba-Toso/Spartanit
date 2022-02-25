@@ -2,7 +2,7 @@ import Header from "./components/Header/Header";
 import Intro from './components/Intro/Intro';
 import MessageBlock from "./components/MessageBlock/MessageBlock"
 import About from "./components/About/About";
-
+import Footer from "./components/Footer/Footer";
 
 import './styles/Sections.scss'
 
@@ -19,6 +19,7 @@ function App() {
         </main>
 
       </div>
+      <Footer />
     </div>
   );
 }
