@@ -1,12 +1,26 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import ReactDOM from 'react-dom';
+import Preloader from './components/General/Preloader';
+import AOS from 'aos';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+
+const Application = lazy(() => import('./App'))
+
+window.addEventListener('load', () => {
+  AOS.init({
+    duration: 1000,
+    easing: 'ease-in-out',
+    once: true,
+    mirror: false
+  })
+});
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Suspense fallback={<Preloader />}>
+      <Application />
+    </Suspense>
   </React.StrictMode>,
   document.getElementById('root')
 );

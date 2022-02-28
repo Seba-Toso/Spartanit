@@ -2,6 +2,7 @@ import Header from "./components/Header/Header";
 import Intro from './components/Intro/Intro';
 import MessageBlock from "./components/MessageBlock/MessageBlock"
 import About from "./components/About/About";
+import ToTopButton from "./components/General/ToTopButton";
 import Footer from "./components/Footer/Footer";
 
 import './styles/Sections.scss'
@@ -20,6 +21,8 @@ function App() {
 
       </div>
       <Footer />
+
+      <ToTopButton />
     </div>
   );
 }

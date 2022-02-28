@@ -14,7 +14,7 @@ const About = () => {
     },
     {
       icon: 'bi bi-graph-up',
-      title: 'Lorem Ipsum',
+      title: 'Ipsum Lorem',
       description: 'Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sintoc caecati cupiditate non provident'
     },
   ]
