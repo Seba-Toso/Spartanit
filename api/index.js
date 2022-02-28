@@ -9,7 +9,7 @@ const app = express()
 
 app.use(cors())
 app.use(express.json())
-app.use(express.static('../app/build'))
+app.use(express.static('./build'))
 
 
 app.get('/', (_req, res, next) => {
@@ -30,6 +30,7 @@ app.use('/api', dataBaseRouter)
 const PORT = process.env.PORT || 3001
 const server = app.listen(PORT, () => {
   console.log(`Server created and running on port ${PORT}`.black.bgGreen)
+  console.log(`localhost:${PORT}`.black.bgGreen)
 })
 
 module.exports = { app, server }

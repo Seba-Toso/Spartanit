@@ -17,7 +17,7 @@ const Contact = () => {
 
         <div className="row">
 
-          <div className="col-lg-4" data-aos="fade-right" data-aos-delay="100">
+          <div className="col-lg-4" data-aos="fade-right" >
             <div className="info">
               <div className="address">
                 <i className="bi bi-geo-alt"></i>
@@ -41,7 +41,7 @@ const Contact = () => {
 
           </div>
 
-          <div className="col-lg-8 mt-5 mt-lg-0" data-aos="fade-left" data-aos-delay="200">
+          <div className="col-lg-8 mt-5 mt-lg-0" data-aos="fade-left" >
 
             <Form />
 

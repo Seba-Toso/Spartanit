@@ -8,7 +8,7 @@ const Content = ({ fontColor }) => {
   return (
     <div className="container py-5" style={{ color: color }}>
       <div className="row justify-content-between">
-        <div className="col-lg-4 order-2 order-lg-1 hero-img" data-aos="zoom-out" data-aos-delay="300">
+        <div className="col-lg-4 order-2 order-lg-1 hero-img" data-aos="fade-right">
           {
             //<img src="assets/logos/hero-img.png" className="img-fluid animated" alt=""/>
           }

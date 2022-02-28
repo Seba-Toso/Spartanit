@@ -9,10 +9,11 @@ const Application = lazy(() => import('./App'))
 
 window.addEventListener('load', () => {
   AOS.init({
-    duration: 1000,
+    duration: 500,
     easing: 'ease-in-out',
     once: true,
-    mirror: false
+    mirror: false,
+    offset: -150
   })
 });
 
