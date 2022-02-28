@@ -2,6 +2,7 @@ import Header from "./components/Header/Header";
 import Intro from './components/Intro/Intro';
 import MessageBlock from "./components/MessageBlock/MessageBlock"
 import About from "./components/About/About";
+import Service from "./components/Service/Service";
 import ToTopButton from "./components/General/ToTopButton";
 import Footer from "./components/Footer/Footer";
 
@@ -17,6 +18,7 @@ function App() {
         <main id="main">
           <MessageBlock h1='Frase Motivadora' h2='Siempre se puede estar más motivado' />
           <About />
+          <Service />
         </main>
 
       </div>
