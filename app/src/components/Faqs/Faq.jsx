@@ -12,8 +12,6 @@ const Faq = ({ answer, response, index }) => {
     setCollaps()
   }, [setCollaps])
 
-  console.log(isCollapsed);
-
   return (
     <li data-aos="fade-up">
       <div className='faq-header'>

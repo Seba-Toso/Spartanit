@@ -6,7 +6,7 @@ import Service from "./components/Service/Service";
 import BlocksContainer from "./components/RandomBlock/BlocksContainer";
 import Gallery from "./components/Gallery/Gallery";
 import Faqs from "./components/Faqs/Faqs";
-
+import Contact from "./components/Contact/Contact";
 import ToTopButton from "./components/General/ToTopButton";
 import Footer from "./components/Footer/Footer";
 
@@ -87,6 +87,7 @@ function App() {
           <BlocksContainer />
           <Gallery projects={projects} />
           <Faqs />
+          <Contact />
         </main>
 
       </div>
