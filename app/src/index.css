@@ -147,4 +147,32 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+.modal-content {
+  border-radius: 0;
+}
+.modal-header {
+  background: #010483;
+  border-radius: 0;
+  justify-content: right;
+}
+.btn-close-white, .btn-close-white:active, .btn-close-white:focus {
+  margin: 0;
+  padding: 0 10px;
+  background-size: 0.5rem;
+  font-size: 1rem;
+  border: none;
+  outline: none;
+  background: none;
+}
+.btn-close svg {
+  color: #fafafa;
+}
 
+.btn-clear {
+  outline: none;
+  box-shadow: none;
+  background-color: none;
+  background: none;
+  border: none;
+  border-radius: 0;
+}
