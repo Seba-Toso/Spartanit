@@ -98,15 +98,36 @@ function App() {
       {
         projects.map((project, index) => {
           return (
-            <div key={index} style={{ maxWidth: '100vw' }} className="modal modal-xl fade" id={`project-${index}`} tabIndex={`-${index}`} aria-labelledby={`${index}`} aria-hidden="true">
-              <div className="modal-dialog modal-dialog-centered">
+            <div key={index} style={{ maxWidth: '100vw !important' }} className="modal fade" id={`project-${index}`} tabIndex={`-${index}`} aria-labelledby={`${index}`} aria-hidden="true">
+              <div className="modal-dialog modal-dialog-centered project-modal">
                 <div className="modal-content">
                   <div className="modal-header p-0">
                     <button type="button" className="btn-close-white" data-bs-dismiss="modal" aria-label="Close"><i className="bi bi-dash"></i></button>
                   </div>
                   <div className="modal-body">
-                    <h5 className="modal-title">{project.customerName}</h5>
-                    ...
+                    <div className="row modal-project-content-container">
+                      <div className="col-lg-6">
+                        <div className="row g-2">
+                          <div className="col-md-6">
+                            <img src={project.images[0]} alt="" className="img-fluid project-img" />
+                          </div>
+                          <div className="col-md-6">
+                            <img src={project.images[0]} alt="" className="img-fluid project-img" />
+                          </div>
+                          <div className="col-md-6">
+                            <img src={project.images[0]} alt="" className="img-fluid project-img" />
+                          </div>
+                          <div className="col-md-6">
+                            <img src={project.images[0]} alt="" className="img-fluid project-img" />
+                          </div>
+                        </div>
+                      </div>
+                      <div className="col-lg-6 modal-project-content">
+                        <h4 className="modal-title text-end mb-4">{project.customerName}</h4>
+                        <h5 className="modal-subtitle text-end mb-4">{project.project}</h5>
+                        <p className="modal-description">{project.description}</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>

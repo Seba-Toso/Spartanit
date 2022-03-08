@@ -54,3 +54,27 @@
     min-height: 300px;
   }
 }
+@media (max-width: 1366px) {
+
+}
+@media (max-width: 1024px) {
+
+}
+@media (max-width: 768px) {
+  .about {
+    .icon-boxes {
+      h1 {
+        text-align: left !important;
+      }
+      p {
+        margin-left: initial !important;
+      }
+      .icon-box{
+        h4, p {
+          margin-left: initial !important;
+        }
+      }
+    }
+  }
+  
+}

@@ -101,31 +101,27 @@
   }
 
   .navbar-mobile {
-    position: fixed;
+    position: absolute;
+    height: fit-content;
+    box-shadow: 0 9px 15px -9px #111;
     overflow: hidden;
-    top: 0;
+    top: 80px;
     right: 0;
     left: 0;
     bottom: 0;
-    background: #004aad;
     transition: 0.3s;
     z-index: 999;
-    .mobile-nav-toggle {
-      position: absolute;
-      top: 15px;
-      right: 15px;
-    }
     ul {
       display: block;
-      position: absolute;
-      top: 55px;
-      right: 15px;
-      bottom: 15px;
-      left: 15px;
+      width: 100vw;
       padding: 10px 0;
       background-color: #fff;
       overflow-y: auto;
       transition: 0.3s;
+      a {
+        justify-content: end;
+        padding-inline: 0;
+      }
     }
   }
   .navbar-mobile > ul > li > a:before {

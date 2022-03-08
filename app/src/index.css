@@ -14,6 +14,11 @@ body{
   -moz-osx-font-smoothing: grayscale;
   color: #1E2832;
 }
+@media (max-width: 768px) {
+  body{
+    font-size: 14px;
+  }
+}
 
 a {
   color: #004aad;
@@ -24,6 +29,7 @@ a:hover {
   color: #004aad;
   text-decoration: none;
 }
+
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "Ubuntu", sans-serif;
@@ -147,13 +153,23 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+.project-modal {
+  max-width: 80vw !important;
+}
 .modal-content {
   border-radius: 0;
+  border: none;
 }
 .modal-header {
   background: #010483;
   border-radius: 0;
   justify-content: right;
+}
+.modal-project-content {
+  color: #004aad;
+}
+.modal-description {
+  font-weight: 400;
 }
 .btn-close-white, .btn-close-white:active, .btn-close-white:focus {
   margin: 0;
@@ -175,4 +191,21 @@ h1, h2, h3, h4, h5, h6 {
   background: none;
   border: none;
   border-radius: 0;
+}
+@media (max-width: 1023px) {
+  .modal-project-content-container{
+    flex-direction: column-reverse;
+  }
+}
+@media (max-width: 768px) {
+  .modal-content {
+    height: 90vh;
+  }
+  .modal-body {
+    overflow: scroll;
+  }
+  .project-modal {
+    max-width: 90vw !important;
+    margin: 0 auto;
+  }
 }

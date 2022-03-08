@@ -34,6 +34,7 @@ const About = () => {
           </div>
 
           <div
+            id='nosotros'
             className="col-xl-7 col-lg-6 icon-boxes d-flex flex-column align-items-stretch justify-content-center py-5 px-lg-5"
             data-aos="fade-left">
             <h1>Nosotros</h1>

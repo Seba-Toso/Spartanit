@@ -103,6 +103,9 @@
   #hero .hero-img img {
     width: 80%;
   }
+  .hero-waves {
+    height: 27px;
+  }
 }
 
 @-webkit-keyframes up-down {
@@ -199,5 +202,26 @@
   }
   100% {
     transform: translate(85px, 0%);
+  }
+}
+
+@media (max-width: 991px) {
+  #hero {
+    .container {
+      padding-bottom: 2rem !important;
+      h1 {
+        font-size: 48px;
+      }
+    }
+    .content {
+      text-align: center;
+      margin: 0 auto;
+      margin-bottom: 20px;
+    }
+  }
+}
+@media (max-width: 575px) {
+  .hero-waves {
+    height: 27px !important;
   }
 }

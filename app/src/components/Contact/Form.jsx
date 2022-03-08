@@ -26,8 +26,9 @@ const Form = () => {
           <span>{errors.email?.type === 'minLength' && "El email debe tener al menos 6 caracteres"}</span>
         </div>
         <div className="col-md-4 form-group">
-          <input type="text" className="form-control" id="phone" placeholder="Tu whatsapp" {...register("phone", { required: true })} />
+          <input type="text" className="form-control" id="phone" placeholder="Tu whatsapp" {...register("phone", { required: true, pattern: { value: /[0-9]{3}/ } })} />
           <span>{errors.phone?.type === 'required' && "Necesitamos tu whatsapp"}</span>
+          <span>{errors.phone?.type === 'pattern' && "El número de Whatsapp no es válido"}</span>
         </div>
       </div>
       <div className="row mt-3">

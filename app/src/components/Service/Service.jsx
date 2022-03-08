@@ -1,6 +1,6 @@
 import React from 'react'
-import ServiceTag from './ServiceTags/ServiceTag'
-import ServicePilar from './ServicePilars/ServicePilar'
+import ServiceTag from './ServiceTag'
+import ServicePilar from './ServicePilar'
 
 import infraestructura from '../../content/Cloud.svg'
 import data from '../../content/Data.svg'
@@ -94,7 +94,7 @@ const Service = () => {
 
   return (
     <>
-      <section id="details" className="details mt-5">
+      <section id="features" className="details mt-5">
         <div className="container">
 
           <div className="section-title" data-aos="fade-up">
@@ -108,7 +108,7 @@ const Service = () => {
 
         </div>
       </section>
-      <section id="features" className="features">
+      <section id="details" className="features">
         <div className="container">
 
           <div className="row" data-aos="fade-left">
