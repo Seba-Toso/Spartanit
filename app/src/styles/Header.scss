@@ -2,14 +2,9 @@
   height: 80px;
   transition: all 0.5s;
   z-index: 997;
-  transition: all 0.5s;
   background: #004aad;
   .header-transparent {
     background: transparent;
-  }
-  .header-scrolled {
-    background: #004aad;
-    height: 60px;
   }
   .logo {
     display: flex;
@@ -51,7 +46,7 @@
       padding: 10px 0 10px 30px;
       font-size: 15px;
       font-weight: 500;
-      font-family: "Poppins", sans-serif;
+      font-family: "Ubuntu", sans-serif;
       color: rgba(255, 255, 255, 0.7);
       white-space: nowrap;
       transition: 0.3s;
@@ -101,6 +96,7 @@
   }
 
   .navbar-mobile {
+    display: none;
     position: absolute;
     height: fit-content;
     box-shadow: 0 9px 15px -9px #111;
@@ -138,6 +134,10 @@
   .navbar-mobile .getstarted, .navbar-mobile .getstarted:focus {
     margin: 15px;
   }
-
+  @media (max-width: 991px) {
+    .navbar-mobile {
+      display: initial;
+    }
+  }
 }
 

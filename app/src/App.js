@@ -85,7 +85,7 @@ function App() {
           <About />
           <Service />
           <BlocksContainer />
-          <Gallery projects={projects} />
+          {projects && <Gallery projects={projects} />}
           <Faqs />
           <Contact />
         </main>

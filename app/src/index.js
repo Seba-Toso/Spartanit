@@ -13,7 +13,7 @@ window.addEventListener('load', () => {
     easing: 'ease-in-out',
     once: true,
     mirror: false,
-    offset: -150
+    offset: -150,
   })
 });
 

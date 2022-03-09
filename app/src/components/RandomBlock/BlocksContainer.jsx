@@ -21,7 +21,7 @@ const BlocksContainer = () => {
   ]
 
   return (
-    <section id="details" className="details">
+    <section id="randomBlock" className="details">
       <div className="container">
         {
           blocks.map(block => <Block key={block.name} {...block} />)
