@@ -195,9 +195,18 @@ function App() {
     },
   ]
 
+  const navigation = {
+    home: true,
+    about: aboutItems.length > 0,
+    services: servicePilar.length > 0,
+    gallery: projects.length > 0,
+    faqs: faqs.length > 0,
+    contact: true,
+  }
+
   return (
     <div className="App">
-      <Header />
+      <Header navigation={navigation} />
       <div id='top' >
         <Intro />
         <main id="main">

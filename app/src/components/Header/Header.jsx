@@ -6,7 +6,7 @@ import Logo from './Logo'
 
 import '../../styles/Header.scss'
 
-const Header = () => {
+const Header = ({ navigation }) => {
   const [showMenu, setShowMenu] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
   const handleScroll = () => {
@@ -29,12 +29,13 @@ const Header = () => {
   }
 
   const navigationTags = [
-    { name: 'Home', to: 'hero' },
-    { name: 'Nosotros', to: 'about' },
-    { name: 'Características', to: 'features' },
-    { name: 'Galería', to: 'gallery' },
-    { name: 'Contacto', to: 'contact' },
-  ]
+    navigation.home && { name: 'Home', to: 'hero' },
+    navigation.about && { name: 'Nosotros', to: 'about' },
+    navigation.services && { name: 'Características', to: 'features' },
+    navigation.gallery && { name: 'Galería', to: 'gallery' },
+    navigation.faqs && { name: 'FAQS', to: 'faq' },
+    navigation.contact && { name: 'Contacto', to: 'contact' },
+  ].filter(nav => nav)
 
   return (
     <header id="header" className="fixed-top d-flex align-items-center header-transparent" style={headerStyle}>
