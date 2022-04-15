@@ -5,6 +5,7 @@ import AOS from 'aos';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 
+
 const Application = lazy(() => import('./App'))
 
 window.addEventListener('load', () => {
@@ -15,7 +16,10 @@ window.addEventListener('load', () => {
     mirror: false,
     offset: -150,
   })
+
 });
+
+
 
 ReactDOM.render(
   <React.StrictMode>

@@ -4,22 +4,11 @@ import Item from './Item'
 import '../../styles/About.scss'
 import video from '../../content/video.mp4'
 
-const About = () => {
+const About = ({ aboutItems }) => {
 
-  const items = [
-    {
-      icon: 'bi bi-graph-up',
-      title: 'Lorem Ipsum',
-      description: 'Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sintoc caecati cupiditate non provident'
-    },
-    {
-      icon: 'bi bi-graph-up',
-      title: 'Ipsum Lorem',
-      description: 'Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sintoc caecati cupiditate non provident'
-    },
-  ]
 
   return (
+    aboutItems.length > 0 &&
     <section id="about" className="about">
       <div className="container-fluid">
 
@@ -39,14 +28,18 @@ const About = () => {
             data-aos="fade-left">
             <h1>Nosotros</h1>
             <p style={{ marginLeft: '85px', fontSize: '1.3em' }}>
-              Esse voluptas cumque vel exercitationem. Reiciendis est hic accusamus. Non ipsam et sed minima temporibus
-              laudantium.e.
+              Somos un equipo de trabajo enfocado en que lleves la comunicación de tu empresa al próximo nivel.
             </p>
 
             {
-              items.map(item => <Item key={item.title} icon={item.icon} title={item.title} description={item.description} />)
+              aboutItems.map(item => <Item key={item.title} icon={item.icon} title={item.title} description={item.description} />)
             }
 
+            {
+              //<p style={{ marginLeft: '85px', marginTop: '60px', fontSize: '1.3em' }}>
+              //¿Querés conocernos un poco más? Mirá el video.
+              //</p>
+            }
           </div>
         </div>
 

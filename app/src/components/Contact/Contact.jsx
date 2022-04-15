@@ -28,7 +28,7 @@ const Contact = () => {
               <div className="email">
                 <i className="bi bi-envelope"></i>
                 <h4>Escribinos:</h4>
-                <p>mail@mail.com</p>
+                <p>info@spartanit.com.ar</p>
               </div>
 
               <div className="phone">

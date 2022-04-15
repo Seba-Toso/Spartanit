@@ -6,6 +6,7 @@ import '../../styles/Gallery.scss'
 const Gallery = ({ projects }) => {
 
   return (
+    projects.length > 0 &&
     <section id="gallery" className="gallery">
       <div className="container">
 

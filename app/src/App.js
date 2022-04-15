@@ -1,3 +1,6 @@
+import { useState, useEffect, useCallback } from 'react';
+import axios from 'axios'
+
 import Header from "./components/Header/Header";
 import Intro from './components/Intro/Intro';
 import MessageBlock from "./components/MessageBlock/MessageBlock"
@@ -12,11 +15,40 @@ import Footer from "./components/Footer/Footer";
 
 import './styles/Sections.scss'
 
+import infraestructura from './content/Cloud.svg'
+import data from './content/Data.svg'
+import communication from './content/Web.svg'
 import image from './content/4_3_image.jpg'
 import customerLogo from './content/helmetLogo.svg'
+
+
 function App() {
 
-  const projects = [
+  const [DBdata, setDBdata] = useState({})
+
+  const getFaqsFromDB = useCallback(async () => {
+    try {
+      const response = await axios.get('http://localhost:3001/api')
+      const { data } = response
+      console.log('Fetching Successfull');
+      if (data) {
+        setDBdata(data)
+      }
+    } catch (error) {
+      console.log('Fetching go bad');
+      console.error(error);
+    }
+  }, [setDBdata])
+
+  useEffect(() => {
+    getFaqsFromDB()
+
+    return null
+  }, [getFaqsFromDB])
+
+
+
+  const projects = DBdata?.projects || [
     {
       customerLogo: customerLogo,
       customerName: 'Lorem Ipsum',
@@ -75,18 +107,109 @@ function App() {
     },
   ]
 
+  const aboutItems = DBdata?.aboutItems || [
+    {
+      icon: 'bi bi-graph-up',
+      title: '1.',
+      description: 'Nos especializamos en análisis de datos, diseño y creación de estrategias comunicacionales.'
+    },
+    {
+      icon: 'bi bi-graph-up',
+      title: '2.',
+      description: 'Nuestros servicios abarcan desde la creación de páginas web, campañas publicitarias en redes sociales, serviciio de branding hasta el posicionamiento en buscadores.'
+    },
+    {
+      icon: 'bi bi-graph-up',
+      title: '3.',
+      description: 'Contamos con la infraestructura necesaria para hacer tu proyecto posible, cuidando de cada detalle, utilizando la íltima tecnología.'
+    },
+  ]
+
+  const servicePilar = DBdata?.servicePilar || [
+    {
+      name: 'Comunicación entratégica',
+      description: 'Diseñamos estrategias comunicacionales 360.',
+      items: [
+        'Diseños web impactantes, creación de contenidos para redes sociales y community managment.',
+        'Administración de Google Adwords, Google Adsense y Google DV360.',
+        'Posicionamiento SEO, redacción persuasiva y copywriting.',
+        'Branding y diseño gráfico.',
+      ],
+      image: communication,
+      order: 2,
+      ending: ''
+    },
+    {
+      name: 'Análisis de datos',
+      description: 'El Bigdata nos provee de información valiosa para comprender el comportamiento de nuestros clientes y consumidores.',
+      items: [
+        'Google Analytics.',
+        'Facebook Analytics.',
+        'Análisis de base de datos SQL Oracle y MySQL.',
+      ],
+      image: data,
+      order: 1
+    },
+    {
+      name: 'Infraestructura',
+      description: 'Con un equipo de expertos en infraestructura cloud y tradicional, brindamos soporte, mantenimiento, migraciones y control de costes.',
+      items: [
+        'Migraciones hacia diferentes entornos como AWS, DigitalOcean, Azure, Google Cloud, Office 365.',
+        'Networking, DNS, Hosting, VPNS, Microservicios.',
+        'Soporte IT, Help desk, capacitaciones, updates de OS.',
+        'Automatización de tareas',
+        'Consultoría en buenas prácticas y mejora contínua.',
+        'Capacitaciones en el uso de nuevas tecnologías.'
+      ],
+      image: infraestructura,
+      order: 2
+    }
+  ]
+  const servicesTags = DBdata?.servicesTags || [/*
+    {
+      name: 'Lorem Ipsum',
+      icon: 'bi bi-cloud-arrow-up',
+      color: "#3f43fd"
+      
+    },*/
+  ]
+
+  const blocks = DBdata?.blocks || []
+
+  const faqs = DBdata?.faqs || [
+    {
+      question: 'Necesito ayuda, no sé por dónde empezar.',
+      response: 'Dejanos un mensaje y te contestamos a la brevedad. Nuestros presupuestos escritos, por videollamada o por teléfono son sin cargo. Nuestras consultorías presenciales tienen un costo por hora.'
+    },
+    {
+      question: 'Plazos.',
+      response: 'Depende el servicio y el tipo de proyecto requerido contamos con plazos de entrega distintos.'
+    },
+    {
+      question: 'Garantía.',
+      response: 'Todos nuestros trabajos están garantizados, su plazo será estimado dependiendiendo la magnitud.'
+    },
+    {
+      question: 'Capacitaciones.',
+      response: 'Contamos con manuales de uso que se entregan con cada trabajo en caso de ser necesarios.'
+    },
+  ]
+
   return (
     <div className="App">
       <Header />
       <div id='top' >
         <Intro />
         <main id="main">
-          <MessageBlock h1='Frase Motivadora' h2='Siempre se puede estar más motivado' />
-          <About />
-          <Service />
-          <BlocksContainer />
+          <MessageBlock h1='"Lo que no se comunica, no existe"' />
+          {blocks && <BlocksContainer blocks={blocks} place={1} />}
+          {aboutItems && <About aboutItems={aboutItems} />}
+          {blocks && <BlocksContainer blocks={blocks} place={2} />}
+          {servicePilar && <Service servicePilar={servicePilar} servicesTags={servicesTags} />}
+          {blocks && <BlocksContainer blocks={blocks} place={3} />}
           {projects && <Gallery projects={projects} />}
-          <Faqs />
+          {blocks && <BlocksContainer blocks={blocks} place={4} />}
+          {faqs && <Faqs faqs={faqs} />}
           <Contact />
         </main>
 
@@ -109,16 +232,16 @@ function App() {
                       <div className="col-lg-6">
                         <div className="row g-2">
                           <div className="col-md-6">
-                            <img src={project.images[0]} alt="" className="img-fluid project-img" />
+                            {project.images[0] && <img src={project.images[0]} alt="" className="img-fluid project-img" />}
                           </div>
                           <div className="col-md-6">
-                            <img src={project.images[0]} alt="" className="img-fluid project-img" />
+                            {project.images[1] && <img src={project.images[1]} alt="" className="img-fluid project-img" />}
                           </div>
                           <div className="col-md-6">
-                            <img src={project.images[0]} alt="" className="img-fluid project-img" />
+                            {project.images[2] && <img src={project.images[2]} alt="" className="img-fluid project-img" />}
                           </div>
                           <div className="col-md-6">
-                            <img src={project.images[0]} alt="" className="img-fluid project-img" />
+                            {project.images[3] && <img src={project.images[3]} alt="" className="img-fluid project-img" />}
                           </div>
                         </div>
                       </div>

@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
+import Swal from 'sweetalert2'
+import axios from 'axios'
 
 const Form = () => {
 
@@ -8,8 +10,42 @@ const Form = () => {
     return event.target.value === 'Otros' ? setIsEnabled(true) : setIsEnabled(false)
   }
 
-  const { register, handleSubmit, watch, formState: { errors } } = useForm();
-  const onSubmit = data => console.log(data);
+  const { register, handleSubmit, formState: { errors }, reset } = useForm();
+  const onSubmit = async (data) => {
+    try {
+      console.log(data);
+      await axios.post('http://localhost:3001/mail', data, {})
+        .then((response) => {
+          Swal.fire({
+            position: 'top-end',
+            title: 'Éxito! Tu mensaje se envió correctamente',
+            icon: 'success',
+            timer: 2000,
+            timerProgressBar: true,
+            toast: true,
+            showConfirmButton: false,
+            showCancelButton: false,
+            showDenyButton: false,
+            showCloseButton: false
+          })
+          //reset()
+        })
+    } catch (error) {
+      console.log(error);
+      Swal.fire({
+        position: 'top-end',
+        title: 'Hubo un problema y no pudimos enviar tu mensaje',
+        icon: 'error',
+        timer: 3000,
+        timerProgressBar: true,
+        toast: true,
+        showConfirmButton: false,
+        showCancelButton: false,
+        showDenyButton: false,
+        showCloseButton: false
+      })
+    }
+  }
 
 
   return (

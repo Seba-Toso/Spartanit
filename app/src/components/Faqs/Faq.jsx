@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react'
 
-const Faq = ({ answer, response, index }) => {
+const Faq = ({ question, response, index }) => {
 
   const [isCollapsed, setIsCollapsed] = useState(false)
 
@@ -17,7 +17,7 @@ const Faq = ({ answer, response, index }) => {
       <div className='faq-header'>
         <i className="bi bi-question-circle icon-help"></i>
         <button type='button' data-bs-toggle="collapse" className={`collapse btn-clear ${isCollapsed ? 'active' : ''}`} data-bs-target={`#faq-list-${index}`} aria-expanded="false" aria-controls={`faq-list-${index}`} onClick={() => setIsCollapsed(!isCollapsed)}>
-          {answer}
+          {question}
           {isCollapsed && <i className="bi bi-chevron-up"></i>}
           {!isCollapsed && <i className="bi bi-chevron-down"></i>}
         </button>
