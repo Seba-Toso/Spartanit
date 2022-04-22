@@ -32,6 +32,7 @@ function App() {
       const { data } = response
       console.log('Fetching Successfull');
       if (data) {
+        //console.log(data);
         setDBdata(data)
       }
     } catch (error) {
@@ -195,6 +196,8 @@ function App() {
     },
   ]
 
+  const context = DBdata?.context || []
+
   const navigation = {
     home: true,
     about: aboutItems.length > 0,
@@ -223,7 +226,7 @@ function App() {
         </main>
 
       </div>
-      <Footer />
+      <Footer context={context} />
 
       <ToTopButton />
 

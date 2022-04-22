@@ -13,7 +13,7 @@ const Form = () => {
   const { register, handleSubmit, formState: { errors }, reset } = useForm();
   const onSubmit = async (data) => {
     try {
-      console.log(data);
+      //console.log(data);
       await axios.post('http://localhost:3001/mail', data, {})
         .then((response) => {
           Swal.fire({
@@ -28,7 +28,7 @@ const Form = () => {
             showDenyButton: false,
             showCloseButton: false
           })
-          //reset()
+          reset()
         })
     } catch (error) {
       console.log(error);
@@ -44,6 +44,7 @@ const Form = () => {
         showDenyButton: false,
         showCloseButton: false
       })
+      //reset()
     }
   }
 

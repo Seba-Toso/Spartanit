@@ -22,7 +22,7 @@ dataBaseRouter.get('/', (req, res, next) => {
 
 
   connection.query(
-    'SELECT * FROM projects; SELECT * FROM aboutItems; SELECT * FROM servicePilar; SELECT * FROM servicesTags; SELECT * FROM blocks; SELECT * FROM faqs',
+    'SELECT * FROM projects; SELECT * FROM aboutItems; SELECT * FROM servicePilar; SELECT * FROM servicesTags; SELECT * FROM blocks; SELECT * FROM faqs; SELECT * FROM context',
     (error, results) => {
       if (error) {
         console.error('An error has been detected when ask data to DB');
@@ -74,8 +74,8 @@ dataBaseRouter.get('/', (req, res, next) => {
       })
 
       let faqs = results[5]
-
-      DBdata = { projects: projects, aboutItems: aboutItems, servicePilar: servicePilar, serviceTags: servicesTags, blocks: blocks, faqs: faqs }
+      let context = results[6]
+      DBdata = { projects: projects, aboutItems: aboutItems, servicePilar: servicePilar, serviceTags: servicesTags, blocks: blocks, faqs: faqs, context: context }
       res.status(200).send(DBdata)
       connection.end();
     });

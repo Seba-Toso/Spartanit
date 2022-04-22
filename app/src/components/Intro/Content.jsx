@@ -17,7 +17,7 @@ const Content = (props) => {
             <h1><span>Spartan IT</span></h1>
             <h2>Communication & Analitics</h2>
             <div className="text-center text-lg-start">
-              <a href="#about" className="btn-get-started scrollto">Hacerlo realidad</a>
+              <a href="#contact" className="btn-get-started scrollto">Hacerlo realidad</a>
             </div>
           </div>
         </div>

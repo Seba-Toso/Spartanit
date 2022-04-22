@@ -7,11 +7,15 @@ mailRouter.post('/', (req, res, next) => {
   const message = req.body
 
   const transporter = nodemailer.createTransport({
-    service: '',
+    host: 'smtp.office365.com',
+    port: 587,
     auth: {
-      user: 'info@spartanit.com.ar',
-      pass: 'ProyectoSur2022'
-    }
+      user: 'admin@spartanit.com.ar',
+      pass: 'fZMEQDBpVJdgQirn7L7Z',
+
+    },
+    secureConnection: false,
+    tls: { ciphers: 'SSLv3' }
   });
 
   const mailOptions = {

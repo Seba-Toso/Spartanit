@@ -7,12 +7,12 @@ import '../../styles/Intro.scss'
 const Intro = () => {
 
   const particlesInit = (main) => {
-    console.log('Init particles');
+    //console.log('Init particles');
     // you can initialize the tsParticles instance (main) here, adding custom shapes or presets
   };
 
   const particlesLoaded = (container) => {
-    console.log('Particles Loaded');
+    //console.log('Particles Loaded');
   };
   const particleOptions = {
     "background": {
