@@ -10,7 +10,6 @@ const Form = () => {
   const captchaRef = useRef();
 
   const onLoad = () => {
-    console.log(`on Load`);
     // this reaches out to the hCaptcha JS API and runs the
     // execute function on it. you can use other functions as
     // documented here:
@@ -19,15 +18,11 @@ const Form = () => {
   };
   useEffect(() => {
     if (token)
-      console.log(`hCaptcha Token: ${token}`);
+      console.log(`With Token`);
   }, [token]);
 
   const [isSendingMessage, setIsSendingMessage] = useState(false)
-  const loader = `
-  display: block;
-  margin: 0 auto;
-  border-color: red;
-`;
+
   const [isEnabled, setIsEnabled] = useState(false)
   const optionSelected = (event) => {
     return event.target.value === 'Otros' ? setIsEnabled(true) : setIsEnabled(false)
@@ -135,7 +130,11 @@ const Form = () => {
         }}
         onError={(e) => console.log(`Error on captcha: ${e}`)}
       />
-      <div className="text-center"><button className={isSendingMessage ? 'sending' : ''} type="submit" disabled={!token || isSendingMessage}>{isSendingMessage ? <PulseLoader color={'#fafafa'} loading={isSendingMessage} size={5} css={loader} /> : 'Enviar'}</button></div>
+      <div className="text-center">
+        <button className={isSendingMessage ? 'sending' : ''} type="submit" disabled={!token || isSendingMessage}>
+          {isSendingMessage ? <PulseLoader color={'#fafafa'} loading={isSendingMessage} size={5} /> : 'Enviar'}
+        </button>
+      </div>
     </form>
   )
 }
