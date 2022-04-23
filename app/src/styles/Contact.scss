@@ -2,6 +2,7 @@
   .info {
     width: 100%;
     background: #fff;
+
     i {
       font-size: 20px;
       color: #3f43fd;
@@ -15,6 +16,7 @@
       border-radius: 50px;
       transition: all 0.3s ease-in-out;
     }
+
     h4 {
       padding: 0 0 0 60px;
       font-size: 22px;
@@ -22,26 +24,35 @@
       margin-bottom: 5px;
       color: #010483;
     }
+
     p {
       padding: 0 0 0 60px;
       margin-bottom: 0;
       font-size: 14px;
       color: #0205a1;
     }
-    .email, .phone {
+
+    .email,
+    .phone {
       margin-top: 40px;
     }
-    .email:hover i, .address:hover i, .phone:hover i {
+
+    .email:hover i,
+    .address:hover i,
+    .phone:hover i {
       background: #004aad;
       color: #fff;
     }
   }
+
   .form {
     width: 100%;
     background: #fff;
+
     .form-group {
       padding-bottom: 8px;
     }
+
     .error-message {
       display: none;
       color: #fff;
@@ -49,10 +60,12 @@
       text-align: left;
       padding: 15px;
       font-weight: 600;
-      br + br {
+
+      br+br {
         margin-top: 25px;
       }
     }
+
     .sent-message {
       display: none;
       color: #fff;
@@ -61,12 +74,14 @@
       padding: 15px;
       font-weight: 600;
     }
+
     .loading {
       display: none;
       background: #fff;
       text-align: center;
       padding: 15px;
     }
+
     .loading:before {
       content: "";
       display: inline-block;
@@ -79,17 +94,24 @@
       -webkit-animation: animate-loading 1s linear infinite;
       animation: animate-loading 1s linear infinite;
     }
-    input, textarea, select {
+
+    input,
+    textarea,
+    select {
       border-radius: 0;
       box-shadow: none;
       font-size: 14px;
     }
-    input, select {
+
+    input,
+    select {
       height: 44px;
     }
+
     textarea {
       padding: 10px 12px;
     }
+
     button[type=submit] {
       background: transparent;
       color: #004aad;
@@ -98,11 +120,18 @@
       padding: 10px 30px;
       transition: 0.4s;
     }
-    button[type=submit]:hover {
-      background: #004aad;
-      color: #f0f0f0;
-      border-bottom: 3px solid #F5F5F5;
+
+    button[type=submit]:hover,
+    .sending {
+      background: #004aad !important;
+      color: #f0f0f0 !important;
+      border-bottom: 3px solid #F5F5F5 !important;
     }
+
+    .sending {
+      cursor: wait;
+    }
+
     span {
       color: #ed3c0d;
       font-size: 0.7rem;
@@ -114,15 +143,28 @@
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
 }
+
 @keyframes animate-loading {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 460px) {
+  .contact {
+    button[type=submit] {
+      background: rgba(0, 75, 173, 0.05) !important;
+      padding: 8px 30px !important;
+      margin-top: 10px;
+    }
   }
 }

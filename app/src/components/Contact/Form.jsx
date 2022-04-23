@@ -3,9 +3,10 @@ import { useForm } from 'react-hook-form'
 import Swal from 'sweetalert2'
 import axios from 'axios'
 import HCaptcha from '@hcaptcha/react-hcaptcha';
+import PulseLoader from "react-spinners/PulseLoader";
 
 const Form = () => {
-  const [token, setToken] = useState();
+  const [token, setToken] = useState('');
   const captchaRef = useRef();
 
   const onLoad = () => {
@@ -21,6 +22,12 @@ const Form = () => {
       console.log(`hCaptcha Token: ${token}`);
   }, [token]);
 
+  const [isSendingMessage, setIsSendingMessage] = useState(false)
+  const loader = `
+  display: block;
+  margin: 0 auto;
+  border-color: red;
+`;
   const [isEnabled, setIsEnabled] = useState(false)
   const optionSelected = (event) => {
     return event.target.value === 'Otros' ? setIsEnabled(true) : setIsEnabled(false)
@@ -29,6 +36,7 @@ const Form = () => {
 
   const { register, handleSubmit, formState: { errors }, reset } = useForm();
   const onSubmit = async (data) => {
+    setIsSendingMessage(true)
     try {
       //console.log(data);
       await axios.post('http://localhost:3001/mail', data, {})
@@ -46,6 +54,8 @@ const Form = () => {
             showCloseButton: false
           })
           reset()
+          setIsSendingMessage(false)
+          setToken('')
         })
     } catch (error) {
       console.log(error);
@@ -61,6 +71,7 @@ const Form = () => {
         showDenyButton: false,
         showCloseButton: false
       })
+      setIsSendingMessage(false)
       //reset()
     }
   }
@@ -116,16 +127,15 @@ const Form = () => {
       <HCaptcha
         sitekey={process.env.REACT_APP_SITEKEY}
         ref={captchaRef}
-
-        onOpen={() => console.log('opened')}
+        //onOpen={() => console.log('opened')}
         onLoad={() => onLoad()}
+        onExpire={() => setToken('')}
         onVerify={(token) => {
-          console.log(token)
           setToken(token)
         }}
-        onError={(e) => console.log(e)}
+        onError={(e) => console.log(`Error on captcha: ${e}`)}
       />
-      <div className="text-center"><button type="submit" disabled={token ? true : false}>Enviar</button></div>
+      <div className="text-center"><button className={isSendingMessage ? 'sending' : ''} type="submit" disabled={!token || isSendingMessage}>{isSendingMessage ? <PulseLoader color={'#fafafa'} loading={isSendingMessage} size={5} css={loader} /> : 'Enviar'}</button></div>
     </form>
   )
 }

@@ -42,6 +42,7 @@
     "nodemailer": "^6.7.3",
     "react-hook-form": "^7.27.1",
     "react-in-viewport": "^1.0.0-alpha.20",
+    "react-spinners": "^0.11.0",
     "react-tsparticles": "^1.41.5",
     "sweetalert2": "^11.4.8"
   },
