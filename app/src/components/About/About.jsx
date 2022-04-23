@@ -7,7 +7,7 @@ import imageDefault from '../../content/fullLogoBlueBg.png'
 
 const About = ({ aboutItems }) => {
 
-  const video = 'https://youtu.be/kzQ75KcUA7s'
+  const video = videoDefault
   const image = imageDefault
 
   return (
@@ -20,21 +20,11 @@ const About = ({ aboutItems }) => {
             data-aos="fade-right" style={{ overflow: 'hidden' }}>
             {(
               video &&
-              <iframe
-                style={{ height: '100%', width: '100%', transform: 'scale(1.5)' }}
-                className="col-xl-5 col-lg-6 d-flex justify-content-center align-items-stretch"
-                src="https://www.youtube.com/embed/kzQ75KcUA7s?autoplay=1&mute=1&loop=1&controls=0"
-                title="YouTube video player"
-                frameBorder={0}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"
-              ></iframe>
-              /*              
               <video loop playsInline muted autoPlay
                 className="col-xl-5 col-lg-6 d-flex justify-content-center align-items-stretch"
                 style={{ height: '100%', width: '100%', transform: 'scale(1.5)' }}>
-                <source src='https://youtu.be/kzQ75KcUA7s' type="video/mp4" />
-              </video> 
-              */
+                <source src={video} type="video/mp4" />
+              </video>
             ) ||
               <img src={image ?? imageDefault} className="img-fluid" alt="" />
             }

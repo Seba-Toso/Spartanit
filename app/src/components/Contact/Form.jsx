@@ -1,14 +1,31 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import Swal from 'sweetalert2'
 import axios from 'axios'
+import HCaptcha from '@hcaptcha/react-hcaptcha';
 
 const Form = () => {
+  const [token, setToken] = useState();
+  const captchaRef = useRef();
+
+  const onLoad = () => {
+    console.log(`on Load`);
+    // this reaches out to the hCaptcha JS API and runs the
+    // execute function on it. you can use other functions as
+    // documented here:
+    // https://docs.hcaptcha.com/configuration#jsapi
+    captchaRef.current.execute();
+  };
+  useEffect(() => {
+    if (token)
+      console.log(`hCaptcha Token: ${token}`);
+  }, [token]);
 
   const [isEnabled, setIsEnabled] = useState(false)
   const optionSelected = (event) => {
     return event.target.value === 'Otros' ? setIsEnabled(true) : setIsEnabled(false)
   }
+
 
   const { register, handleSubmit, formState: { errors }, reset } = useForm();
   const onSubmit = async (data) => {
@@ -96,7 +113,19 @@ const Form = () => {
         <div className="error-message"></div>
         <div className="sent-message">Gracias por escribirnos, a la brevedad vamos a estar contactándote</div>
       </div>
-      <div className="text-center"><button type="submit">Enviar</button></div>
+      <HCaptcha
+        sitekey={process.env.REACT_APP_SITEKEY}
+        ref={captchaRef}
+
+        onOpen={() => console.log('opened')}
+        onLoad={() => onLoad()}
+        onVerify={(token) => {
+          console.log(token)
+          setToken(token)
+        }}
+        onError={(e) => console.log(e)}
+      />
+      <div className="text-center"><button type="submit" disabled={token ? true : false}>Enviar</button></div>
     </form>
   )
 }

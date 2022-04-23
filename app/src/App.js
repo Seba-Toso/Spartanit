@@ -213,7 +213,7 @@ function App() {
       <div id='top' >
         <Intro />
         <main id="main">
-          <MessageBlock h1='"Lo que no se comunica, no existe"' />
+          <MessageBlock h1={context[4]?.link ? `"${context[4]?.link}"` : '"Lo que no se comunica, no existe"'} />
           {blocks && <BlocksContainer blocks={blocks} place={1} />}
           {aboutItems && <About aboutItems={aboutItems} />}
           {blocks && <BlocksContainer blocks={blocks} place={2} />}
