@@ -1,10 +1,11 @@
-html{
+html {
   margin: 0;
   border: 0;
   box-sizing: content-box;
   scroll-behavior: smooth;
 }
-body{
+
+body {
   margin: 0;
   border: 0;
   font-weight: 300;
@@ -14,8 +15,9 @@ body{
   -moz-osx-font-smoothing: grayscale;
   color: #1E2832;
 }
+
 @media (max-width: 768px) {
-  body{
+  body {
     font-size: 14px;
   }
 }
@@ -23,15 +25,22 @@ body{
 a {
   color: #004aad;
   text-decoration: none;
+
 }
 
 a:hover {
   color: #004aad;
   text-decoration: none;
+  opacity: 1 !important;
 }
 
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: "Ubuntu", sans-serif;
 }
 
@@ -45,6 +54,7 @@ h1, h2, h3, h4, h5, h6 {
   overflow: hidden;
   background: #fff;
 }
+
 #preloader:before {
   content: "";
   position: fixed;
@@ -58,18 +68,22 @@ h1, h2, h3, h4, h5, h6 {
   -webkit-animation: animate-preloader 1s linear infinite;
   animation: animate-preloader 1s linear infinite;
 }
+
 @-webkit-keyframes animate-preloader {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
 }
+
 @keyframes animate-preloader {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
@@ -88,16 +102,19 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 50px;
   transition: all 0.4s;
 }
+
 .back-to-top i {
   font-size: 28px;
   color: #fff;
   line-height: 0;
 }
+
 .back-to-top:hover {
   opacity: 1;
   background: #004aad;
   color: #fff;
 }
+
 .back-to-top.active {
   visibility: visible;
   opacity: 1;
@@ -109,21 +126,25 @@ h1, h2, h3, h4, h5, h6 {
   min-height: 40px;
   margin-top: 80px;
 }
+
 @media (max-width: 992px) {
   .breadcrumbs {
     margin-top: 64px;
   }
 }
+
 .breadcrumbs h2 {
   font-size: 24px;
   font-weight: 400;
   margin: 0;
 }
+
 @media (max-width: 992px) {
   .breadcrumbs h2 {
     margin: 0 0 10px 0;
   }
 }
+
 .breadcrumbs ol {
   display: flex;
   flex-wrap: wrap;
@@ -132,22 +153,27 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0;
   font-size: 14px;
 }
-.breadcrumbs ol li + li {
+
+.breadcrumbs ol li+li {
   padding-left: 10px;
 }
-.breadcrumbs ol li + li::before {
+
+.breadcrumbs ol li+li::before {
   display: inline-block;
   padding-right: 10px;
   color: #6c757d;
   content: "/";
 }
+
 @media (max-width: 768px) {
   .breadcrumbs .d-flex {
     display: block !important;
   }
+
   .breadcrumbs ol {
     display: block;
   }
+
   .breadcrumbs ol li {
     display: inline-block;
   }
@@ -156,22 +182,29 @@ h1, h2, h3, h4, h5, h6 {
 .project-modal {
   max-width: 80vw !important;
 }
+
 .modal-content {
   border-radius: 0;
   border: none;
 }
+
 .modal-header {
   background: #010483;
   border-radius: 0;
   justify-content: right;
 }
+
 .modal-project-content {
   color: #004aad;
 }
+
 .modal-description {
   font-weight: 400;
 }
-.btn-close-white, .btn-close-white:active, .btn-close-white:focus {
+
+.btn-close-white,
+.btn-close-white:active,
+.btn-close-white:focus {
   margin: 0;
   padding: 0 10px;
   background-size: 0.5rem;
@@ -180,6 +213,7 @@ h1, h2, h3, h4, h5, h6 {
   outline: none;
   background: none;
 }
+
 .btn-close svg {
   color: #fafafa;
 }
@@ -192,18 +226,22 @@ h1, h2, h3, h4, h5, h6 {
   border: none;
   border-radius: 0;
 }
+
 @media (max-width: 1023px) {
-  .modal-project-content-container{
+  .modal-project-content-container {
     flex-direction: column-reverse;
   }
 }
+
 @media (max-width: 768px) {
   .modal-content {
     height: 90vh;
   }
+
   .modal-body {
     overflow: scroll;
   }
+
   .project-modal {
     max-width: 90vw !important;
     margin: 0 auto;

@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import axios from 'axios'
 
+import Preloader from './components/General/Preloader';
 import Header from "./components/Header/Header";
 import Intro from './components/Intro/Intro';
 import MessageBlock from "./components/MessageBlock/MessageBlock"
@@ -18,8 +19,6 @@ import './styles/Sections.scss'
 import infraestructura from './content/Cloud.svg'
 import data from './content/Data.svg'
 import communication from './content/Web.svg'
-import image from './content/4_3_image.jpg'
-import customerLogo from './content/helmetLogo.svg'
 
 
 function App() {
@@ -49,64 +48,7 @@ function App() {
 
 
 
-  const projects = DBdata?.projects || [
-    {
-      customerLogo: customerLogo,
-      customerName: 'Lorem Ipsum',
-      project: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit , sed do eiusmod tempor incididunt ut labore et dolore magna aliqua., sed do eiusmod tempor incididunt ut labore et dolore magna aliqua., sed do eiusmod tempor incididunt ut labore et dolore magna aliqua., sed do eiusmod tempor incididunt ut labore et dolore magna aliqua., sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      images: [image],
-    },
-    {
-      customerLogo: customerLogo,
-      customerName: 'Lorem Ipsum1',
-      project: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit , sed do eiusmod tempor incididunt ut labore et dolore magna aliqua., sed do eiusmod tempor incididunt ut labore et dolore magna aliqua., sed do eiusmod tempor incididunt ut labore et dolore magna aliqua., sed do eiusmod tempor incididunt ut labore et dolore magna aliqua., sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      images: [image],
-    },
-    {
-      customerLogo: customerLogo,
-      customerName: 'Lorem Ipsum2',
-      project: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit , sed do eiusmod tempor incididunt ut labore et dolore magna aliqua., sed do eiusmod tempor incididunt ut labore et dolore magna aliqua., sed do eiusmod tempor incididunt ut labore et dolore magna aliqua., sed do eiusmod tempor incididunt ut labore et dolore magna aliqua., sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      images: [image],
-    },
-    {
-      customerLogo: customerLogo,
-      customerName: 'Lorem Ipsum3',
-      project: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit , sed do eiusmod tempor incididunt ut labore et dolore magna aliqua., sed do eiusmod tempor incididunt ut labore et dolore magna aliqua., sed do eiusmod tempor incididunt ut labore et dolore magna aliqua., sed do eiusmod tempor incididunt ut labore et dolore magna aliqua., sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      images: [image],
-    },
-    {
-      customerLogo: customerLogo,
-      customerName: 'Lorem Ipsum4',
-      project: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit , sed do eiusmod tempor incididunt ut labore et dolore magna aliqua., sed do eiusmod tempor incididunt ut labore et dolore magna aliqua., sed do eiusmod tempor incididunt ut labore et dolore magna aliqua., sed do eiusmod tempor incididunt ut labore et dolore magna aliqua., sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      images: [image],
-    },
-    {
-      customerLogo: customerLogo,
-      customerName: 'Lorem Ipsum5',
-      project: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit , sed do eiusmod tempor incididunt ut labore et dolore magna aliqua., sed do eiusmod tempor incididunt ut labore et dolore magna aliqua., sed do eiusmod tempor incididunt ut labore et dolore magna aliqua., sed do eiusmod tempor incididunt ut labore et dolore magna aliqua., sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      images: [image],
-    },
-    {
-      customerLogo: customerLogo,
-      customerName: 'Lorem Ipsum6',
-      project: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit , sed do eiusmod tempor incididunt ut labore et dolore magna aliqua., sed do eiusmod tempor incididunt ut labore et dolore magna aliqua., sed do eiusmod tempor incididunt ut labore et dolore magna aliqua., sed do eiusmod tempor incididunt ut labore et dolore magna aliqua., sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      images: [image],
-    },
-    {
-      customerLogo: customerLogo,
-      customerName: 'Lorem Ipsum7',
-      project: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit , sed do eiusmod tempor incididunt ut labore et dolore magna aliqua., sed do eiusmod tempor incididunt ut labore et dolore magna aliqua., sed do eiusmod tempor incididunt ut labore et dolore magna aliqua., sed do eiusmod tempor incididunt ut labore et dolore magna aliqua., sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      images: [image],
-    },
-  ]
+  const projects = DBdata?.projects || []
 
   const aboutItems = DBdata?.aboutItems || [
     {
@@ -207,70 +149,74 @@ function App() {
     contact: true,
   }
 
+
   return (
-    <div className="App">
-      <Header navigation={navigation} />
-      <div id='top' >
-        <Intro />
-        <main id="main">
-          <MessageBlock h1={context[4]?.link ? `"${context[4]?.link}"` : '"Lo que no se comunica, no existe"'} />
-          {blocks && <BlocksContainer blocks={blocks} place={1} />}
-          {aboutItems && <About aboutItems={aboutItems} />}
-          {blocks && <BlocksContainer blocks={blocks} place={2} />}
-          {servicePilar && <Service servicePilar={servicePilar} servicesTags={servicesTags} />}
-          {blocks && <BlocksContainer blocks={blocks} place={3} />}
-          {projects && <Gallery projects={projects} />}
-          {blocks && <BlocksContainer blocks={blocks} place={4} />}
-          {faqs && <Faqs faqs={faqs} />}
-          <Contact />
-        </main>
+    data.length === undefined || data.length === 0 ?
+      <Preloader />
+      :
+      <div className="App">
+        <Header navigation={navigation} />
+        <div id='top' >
+          <Intro />
+          <main id="main">
+            <MessageBlock h1={context[4]?.link ? `"${context[4]?.link}"` : '"Lo que no se comunica, no existe"'} />
+            {blocks && <BlocksContainer blocks={blocks} place={1} />}
+            {aboutItems && <About aboutItems={aboutItems} />}
+            {blocks && <BlocksContainer blocks={blocks} place={2} />}
+            {servicePilar && <Service servicePilar={servicePilar} servicesTags={servicesTags} />}
+            {blocks && <BlocksContainer blocks={blocks} place={3} />}
+            {projects && <Gallery projects={projects} />}
+            {blocks && <BlocksContainer blocks={blocks} place={4} />}
+            {faqs && <Faqs faqs={faqs} />}
+            <Contact />
+          </main>
 
-      </div>
-      <Footer context={context} />
+        </div>
+        <Footer context={context} />
 
-      <ToTopButton />
+        <ToTopButton />
 
-      {
-        projects.map((project, index) => {
-          return (
-            <div key={index} style={{ maxWidth: '100vw !important' }} className="modal fade" id={`project-${index}`} tabIndex={`-${index}`} aria-labelledby={`${index}`} aria-hidden="true">
-              <div className="modal-dialog modal-dialog-centered project-modal">
-                <div className="modal-content">
-                  <div className="modal-header p-0">
-                    <button type="button" className="btn-close-white" data-bs-dismiss="modal" aria-label="Close"><i className="bi bi-dash"></i></button>
-                  </div>
-                  <div className="modal-body">
-                    <div className="row modal-project-content-container">
-                      <div className="col-lg-6">
-                        <div className="row g-2">
-                          <div className="col-md-6">
-                            {project.images[0] && <img src={project.images[0]} alt="" className="img-fluid project-img" />}
-                          </div>
-                          <div className="col-md-6">
-                            {project.images[1] && <img src={project.images[1]} alt="" className="img-fluid project-img" />}
-                          </div>
-                          <div className="col-md-6">
-                            {project.images[2] && <img src={project.images[2]} alt="" className="img-fluid project-img" />}
-                          </div>
-                          <div className="col-md-6">
-                            {project.images[3] && <img src={project.images[3]} alt="" className="img-fluid project-img" />}
+        {
+          projects.map((project, index) => {
+            return (
+              <div key={index} style={{ maxWidth: '100vw !important' }} className="modal fade" id={`project-${index}`} tabIndex={`-${index}`} aria-labelledby={`${index}`} aria-hidden="true">
+                <div className="modal-dialog modal-dialog-centered project-modal">
+                  <div className="modal-content">
+                    <div className="modal-header p-0">
+                      <button type="button" className="btn-close-white" data-bs-dismiss="modal" aria-label="Close"><i className="bi bi-dash"></i></button>
+                    </div>
+                    <div className="modal-body">
+                      <div className="row modal-project-content-container">
+                        <div className="col-lg-6">
+                          <div className="row g-2">
+                            <div className="col-md-6">
+                              {project.images[0] && <img src={project.images[0]} alt="" className="img-fluid project-img" />}
+                            </div>
+                            <div className="col-md-6">
+                              {project.images[1] && <img src={project.images[1]} alt="" className="img-fluid project-img" />}
+                            </div>
+                            <div className="col-md-6">
+                              {project.images[2] && <img src={project.images[2]} alt="" className="img-fluid project-img" />}
+                            </div>
+                            <div className="col-md-6">
+                              {project.images[3] && <img src={project.images[3]} alt="" className="img-fluid project-img" />}
+                            </div>
                           </div>
                         </div>
-                      </div>
-                      <div className="col-lg-6 modal-project-content">
-                        <h4 className="modal-title text-end mb-4">{project.customerName}</h4>
-                        <h5 className="modal-subtitle text-end mb-4">{project.project}</h5>
-                        <p className="modal-description">{project.description}</p>
+                        <div className="col-lg-6 modal-project-content">
+                          <h4 className="modal-title text-end mb-4">{project.customerName}</h4>
+                          <h5 className="modal-subtitle text-end mb-4">{project.project}</h5>
+                          <p className="modal-description">{project.description}</p>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          )
-        })
-      }
-    </div>
+            )
+          })
+        }
+      </div>
   );
 }
 

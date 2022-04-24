@@ -25,7 +25,10 @@ const Footer = ({ context }) => {
               <p>Lorem Ipsum</p>
             </div>
             <div className='col-md-4'>
-              <p>Seguinos en nuestras redes</p>
+              {
+                (youtube || linkedin || facebook || instagram) &&
+                <p>Seguinos en nuestras redes</p>
+              }
             </div>
             <div className='col-md-4'>
               <p>Buenos Aires, Argentina</p>
