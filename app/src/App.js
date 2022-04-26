@@ -27,7 +27,7 @@ function App() {
 
   const getFaqsFromDB = useCallback(async () => {
     try {
-      const response = await axios.get('http://localhost:3001/api')
+      const response = await axios.get('https://www.spartanit.com.ar/api')
       const { data } = response
       console.log('Fetching Successfull');
       if (data) {

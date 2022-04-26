@@ -7,11 +7,11 @@ mailRouter.post('/', (req, res, next) => {
   const message = req.body
 
   const transporter = nodemailer.createTransport({
-    host: 'smtp.office365.com',
-    port: 587,
+    host: process.env.MAILHOST,
+    port: process.env.MAILPORT,
     auth: {
-      user: 'admin@spartanit.com.ar',
-      pass: 'fZMEQDBpVJdgQirn7L7Z',
+      user: process.env.ADMINMAIL,
+      pass: process.env.ADMINPASS,
 
     },
     secureConnection: false,
@@ -20,7 +20,7 @@ mailRouter.post('/', (req, res, next) => {
 
   const mailOptions = {
     from: 'Servicio de Mensajería de SpartanIT',
-    to: 'info@spartanit.com.ar',
+    to: process.env.MAIL,
     subject: message.subject,
     text: `
       Nombre del interesado/a: ${message.name}

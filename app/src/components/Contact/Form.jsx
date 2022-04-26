@@ -34,7 +34,7 @@ const Form = () => {
     setIsSendingMessage(true)
     try {
       //console.log(data);
-      await axios.post('http://localhost:3001/mail', data, {})
+      await axios.post('https://www.spartanit.com.ar/mail', data, {})
         .then((response) => {
           Swal.fire({
             position: 'top-end',
