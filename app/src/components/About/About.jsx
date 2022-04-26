@@ -17,12 +17,12 @@ const About = ({ aboutItems }) => {
 
         <div className="row">
           <div className="col-xl-5 col-lg-6 video-box d-flex justify-content-center align-items-stretch"
-            data-aos="fade-right" style={{ overflow: 'hidden' }}>
+            data-aos="fade-right" style={{ overflow: 'hidden', paddingInline: '0' }}>
             {(
               video &&
               <video loop playsInline muted autoPlay
                 className="col-xl-5 col-lg-6 d-flex justify-content-center align-items-stretch"
-                style={{ height: '100%', width: '100%', transform: 'scale(1.5)' }}>
+                style={{ height: '100%', width: '100%' }}>
                 <source src={video} type="video/mp4" />
               </video>
             ) ||
