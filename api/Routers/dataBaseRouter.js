@@ -1,5 +1,5 @@
 require('dotenv').config()
-const mysql = require('mysql')
+const mysql = require('mysql2')
 const dataBaseRouter = require('express').Router()
 const { json } = require('express')
 
@@ -8,14 +8,14 @@ dataBaseRouter.get('/', (req, res, next) => {
 
   let connection = mysql.createConnection({
     host: process.env.HOST,
-    user: process.env.USER,
+    user: 'Administrador',
     password: process.env.PASS,
     database: process.env.DB,
     multipleStatements: true
   });
 
   connection.connect((err) => {
-    if (err) console.err('There was en error trying to connect with DB: ', err);
+    if (err) console.error('There was en error trying to connect with DB: ', err);
     console.log('connected to DB');
   })
 

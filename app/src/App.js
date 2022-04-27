@@ -28,6 +28,7 @@ function App() {
   const getFaqsFromDB = useCallback(async () => {
     try {
       const response = await axios.get('https://www.spartanit.com.ar/api')
+      //const response = await axios.get('http://localhost:3001/api')
       const { data } = response
       console.log('Fetching Successfull');
       if (data) {
@@ -36,7 +37,7 @@ function App() {
       }
     } catch (error) {
       console.log('Fetching go bad');
-      console.error(error);
+      console.error(error?.error);
     }
   }, [setDBdata])
 
@@ -168,7 +169,7 @@ function App() {
             {projects && <Gallery projects={projects} />}
             {blocks && <BlocksContainer blocks={blocks} place={4} />}
             {faqs && <Faqs faqs={faqs} />}
-            <Contact />
+            <Contact tel={context[5]?.link} mail={context[6]?.link} />
           </main>
 
         </div>

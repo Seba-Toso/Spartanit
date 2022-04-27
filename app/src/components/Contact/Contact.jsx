@@ -3,8 +3,10 @@ import Form from './Form'
 
 import '../../styles/Contact.scss'
 
-const Contact = () => {
+const Contact = ({ tel, mail }) => {
 
+  let telephone = tel || ''
+  let email = mail || ''
 
   return (
     <section id="contact" className="contact">
@@ -25,17 +27,23 @@ const Contact = () => {
                 <p>Buenos Aires, Argentina</p>
               </div>
 
-              <div className="email">
-                <i className="bi bi-envelope"></i>
-                <h4>Escribinos:</h4>
-                <p>info@spartanit.com.ar</p>
-              </div>
+              {
+                email &&
+                <div className="email">
+                  <i className="bi bi-envelope"></i>
+                  <h4>Escribinos:</h4>
+                  <p>{email ?? 'info@spartanit.com.ar'}</p>
+                </div>
+              }
 
-              <div className="phone">
-                <i className="bi bi-phone"></i>
-                <h4>Llamanos:</h4>
-                <p>3432523234523</p>
-              </div>
+              {
+                telephone &&
+                <div className="phone">
+                  <i className="bi bi-phone"></i>
+                  <h4>Llamanos:</h4>
+                  <p>{telephone}</p>
+                </div>
+              }
 
             </div>
 

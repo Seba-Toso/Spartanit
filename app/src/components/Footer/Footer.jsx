@@ -11,18 +11,20 @@ const Footer = ({ context }) => {
   let linkedin = context[1]?.link || ""
   let facebook = context[2]?.link || ""
   let instagram = context[3]?.link || ""
-
+  let footerHeader = context[7]?.link || ''
+  let col_1 = context[8]?.link || ''
+  let col_3 = context[9]?.link || ''
 
   return (
     <footer id="footer">
       <div className="footer-top">
         <div className="container">
           <div className="row text-center">
-            <p>Alguna frase amiga sobre Spartan IT </p>
+            <p>{footerHeader}</p>
           </div>
           <div className="row text-center py-4">
             <div className='col-md-4'>
-              <p>Lorem Ipsum</p>
+              <p>{col_1}</p>
             </div>
             <div className='col-md-4'>
               {
@@ -31,7 +33,7 @@ const Footer = ({ context }) => {
               }
             </div>
             <div className='col-md-4'>
-              <p>Buenos Aires, Argentina</p>
+              <p>{col_3}</p>
             </div>
           </div>
           <div className="social-icons row justify-content-center text-center w-50 px-5 pt-1 pb-3 m-auto">
